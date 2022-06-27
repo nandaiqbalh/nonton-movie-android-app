@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">NontonMovieKotlin</string>
+
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="now_playing">NOW PLAYING</string>
+    <string name="now_playing_desc">You can find movies currently playing in cinemas</string>
+    <string name="cashless">CASHLESS</string>
+    <string name="cashless_desc">Use your e-wallet for payments</string>
+    <string name="presale_ticket">PRESALE TICKET</string>
+    <string name="presale_ticket_desc">Get ticket for upcoming movies</string>
+    <string name="get_started">GET STARTED</string>
 </resources>
