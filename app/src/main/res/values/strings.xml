@@ -20,4 +20,7 @@
     <string name="email">Email</string>
     <string name="photo_title">Photo</string>
     <string name="save">SAVE</string>
+    <string name="user">User</string>
+    <string name="idr_250_000">IDR 250.000</string>
+    <string name="cooming_soon">COOMING SOON</string>
 </resources>
