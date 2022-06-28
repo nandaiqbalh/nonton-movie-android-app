@@ -15,4 +15,7 @@
     <string name="sign_in_caps">SIGN IN</string>
     <string name="sign_up_caps">SIGN UP</string>
     <string name="password">Password</string>
+    <string name="sign_up_title">Sign up</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
 </resources>
