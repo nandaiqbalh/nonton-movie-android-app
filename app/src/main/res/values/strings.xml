@@ -23,4 +23,9 @@
     <string name="user">User</string>
     <string name="idr_250_000">IDR 250.000</string>
     <string name="cooming_soon">COOMING SOON</string>
+    <string name="movie_title">Dunkirk</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="movie_genre">War, Action</string>
+    <string name="who_s_played">Who's Played</string>
+    <string name="select_seats">SELECT SEATS</string>
 </resources>

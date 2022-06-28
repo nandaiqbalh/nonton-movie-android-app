@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NontonMovieKotlin">
         <activity
+            android:name=".home.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".home.HomeActivity"
             android:exported="false" />
         <activity
