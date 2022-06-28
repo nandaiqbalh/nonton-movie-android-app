@@ -10,4 +10,9 @@
     <string name="presale_ticket">PRESALE TICKET</string>
     <string name="presale_ticket_desc">Get ticket for upcoming movies</string>
     <string name="get_started">GET STARTED</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="sign_in_caps">SIGN IN</string>
+    <string name="sign_up_caps">SIGN UP</string>
+    <string name="password">Password</string>
 </resources>
