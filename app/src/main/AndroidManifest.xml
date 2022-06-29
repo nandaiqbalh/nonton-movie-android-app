@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NontonMovieKotlin">
         <activity
+            android:name=".history.HistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".profile.MyWalletActivity"
             android:exported="false" />
         <activity
