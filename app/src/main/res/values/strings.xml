@@ -26,9 +26,18 @@
     <string name="movie_title">Dunkirk</string>
     <string name="synopsis">Synopsis</string>
     <string name="movie_genre">War, Action</string>
-    <string name="who_s_played">Who's Played</string>
+    <string name="who_s_played">Who is Played</string>
     <string name="select_seats">SELECT SEATS</string>
     <string name="select_seats_title">Select Seats</string>
     <string name="judul_film_select_seats">Judul Film</string>
     <string name="cinema_screen">Cinema Screen</string>
+    <string name="checkout_title">Checkout</string>
+    <string name="checkout_now_BTN">CHECKOUT NOW</string>
+    <string name="cancel_btn">CANCEL</string>
+    <string name="when">When</string>
+    <string name="date_and_time">Date and Time</string>
+    <string name="cinema">Cinema</string>
+    <string name="items">Items</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="total_price">Total price</string>
 </resources>
