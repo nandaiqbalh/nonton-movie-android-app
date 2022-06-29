@@ -40,4 +40,6 @@
     <string name="items">Items</string>
     <string name="total_balance">Total Balance</string>
     <string name="total_price">Total price</string>
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="save_update_btn">SAVE UPDATE</string>
 </resources>
