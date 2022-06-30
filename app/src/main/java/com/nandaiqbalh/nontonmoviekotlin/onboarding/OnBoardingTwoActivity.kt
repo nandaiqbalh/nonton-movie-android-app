@@ -7,11 +7,14 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.nandaiqbalh.nontonmoviekotlin.R
 import com.nandaiqbalh.nontonmoviekotlin.authentication.signin.SignInActivity
+import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
 
 class OnBoardingTwoActivity : AppCompatActivity() {
 
     lateinit var btn_home: Button
     lateinit var btn_skip: Button
+
+    lateinit var sharedPrefs: SharedPrefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,8 @@ class OnBoardingTwoActivity : AppCompatActivity() {
     private fun init() {
         btn_home = findViewById(R.id.btn_next)
         btn_skip = findViewById(R.id.btn_skip)
+
+        sharedPrefs = SharedPrefs(this)
     }
 
     private fun mainButton() {
@@ -44,6 +49,9 @@ class OnBoardingTwoActivity : AppCompatActivity() {
         }
 
         btn_skip.setOnClickListener {
+
+            sharedPrefs.setValue("onboarding", "1")
+
             var intent = Intent(this@OnBoardingTwoActivity, SignInActivity::class.java)
             startActivity(intent)
             finishAffinity()

@@ -7,10 +7,13 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.nandaiqbalh.nontonmoviekotlin.R
 import com.nandaiqbalh.nontonmoviekotlin.authentication.signin.SignInActivity
+import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
 
 class OnBoardingThreeActivity : AppCompatActivity() {
 
     lateinit var btnGetStarted: Button
+
+    lateinit var sharedPrefs: SharedPrefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +36,15 @@ class OnBoardingThreeActivity : AppCompatActivity() {
 
         btnGetStarted = findViewById(R.id.btn_get_started)
 
+        sharedPrefs = SharedPrefs(this)
+
     }
 
     private fun mainButton() {
         btnGetStarted.setOnClickListener {
+
+            sharedPrefs.setValue("onboarding", "1")
+
             var intent = Intent(this@OnBoardingThreeActivity, SignInActivity::class.java)
             startActivity(intent)
             finishAffinity()

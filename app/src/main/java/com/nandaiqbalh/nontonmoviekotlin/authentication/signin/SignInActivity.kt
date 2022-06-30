@@ -12,6 +12,7 @@ import com.nandaiqbalh.nontonmoviekotlin.R
 import com.nandaiqbalh.nontonmoviekotlin.authentication.User
 import com.nandaiqbalh.nontonmoviekotlin.authentication.signup.SignUpActivity
 import com.nandaiqbalh.nontonmoviekotlin.home.HomeActivity
+import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
 
 class SignInActivity : AppCompatActivity() {
 
@@ -22,6 +23,8 @@ class SignInActivity : AppCompatActivity() {
     lateinit var edtPassword: EditText
 
     lateinit var mDatabase: DatabaseReference
+
+    lateinit var sharedPrefs: SharedPrefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +42,9 @@ class SignInActivity : AppCompatActivity() {
         // button pressed
         mainButton()
 
+        // shared prefs helper
+        spValueHelper()
+
     }
 
     private fun init() {
@@ -49,7 +55,9 @@ class SignInActivity : AppCompatActivity() {
         edtUsername = findViewById(R.id.edt_username)
         edtPassword = findViewById(R.id.edt_password)
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("User")
+        mDatabase = FirebaseDatabase.getInstance().getReference("User") // "User" merupakan path nama tabel dalam database
+
+        sharedPrefs = SharedPrefs(this)
     }
 
     private fun mainButton() {
@@ -97,6 +105,15 @@ class SignInActivity : AppCompatActivity() {
                         // kalau sudah match akan masuk ke home
                         var intent = Intent(this@SignInActivity, HomeActivity::class.java)
                         startActivity(intent)
+                        finishAffinity()
+
+                        // simpan value
+                        sharedPrefs.setValue("name", user.name.toString());
+                        sharedPrefs.setValue("email", user.email.toString());
+                        sharedPrefs.setValue("username", user.username.toString());
+                        sharedPrefs.setValue("url", user.url.toString());
+                        sharedPrefs.setValue("saldo", user.saldo.toString());
+                        sharedPrefs.setValue("status", "1");
 
                     } else {
 
@@ -113,5 +130,17 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(this@SignInActivity, error.message, Toast.LENGTH_LONG).show()
             }
         })
+    }
+
+    private fun spValueHelper(){
+
+        sharedPrefs.setValue("onboarding", "1")
+
+        if (sharedPrefs.getValue("status").equals("1")){
+
+            var intent = Intent(this@SignInActivity, HomeActivity::class.java)
+            startActivity(intent)
+            finishAffinity()
+        }
     }
 }
