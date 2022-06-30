@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.database.*
 import com.nandaiqbalh.nontonmoviekotlin.R
+import com.nandaiqbalh.nontonmoviekotlin.adapter.ComingSoonAdapter
 import com.nandaiqbalh.nontonmoviekotlin.adapter.NowPlayingAdapter
 import com.nandaiqbalh.nontonmoviekotlin.model.Film
 import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
@@ -117,6 +118,8 @@ class DashboardFragment : Fragment() {
         if (sharedPrefs.getValue("saldo") != ""){
 
             currencyFormatter(sharedPrefs.getValue("saldo")!!.toDouble(), tvSaldo)
+        } else {
+            currencyFormatter(0.0, tvSaldo)
         }
 
         Glide.with(this)
@@ -145,6 +148,12 @@ class DashboardFragment : Fragment() {
                     dataList.add(film!!)
 
                     rvNowPlaying.adapter  = NowPlayingAdapter(dataList){
+
+                        // jika dipencet akan ke halaman detail
+
+                    }
+
+                    rvComingSoon.adapter  = ComingSoonAdapter(dataList){
 
                         // jika dipencet akan ke halaman detail
 

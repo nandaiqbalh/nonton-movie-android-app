@@ -54,12 +54,7 @@ class SignUpPhotoScreenActivity : AppCompatActivity(), PermissionListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up_photo)
 
-        // full screen
-        getWindow().setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        );
-        
+
         // init
         init()
         
