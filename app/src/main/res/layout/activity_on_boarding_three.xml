@@ -8,7 +8,7 @@
     tools:context=".onboarding.OnBoardingThreeActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_get_started"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
