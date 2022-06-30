@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1095741329696",
+    "project_id": "nontonmoviekotlin",
+    "storage_bucket": "nontonmoviekotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095741329696:android:738bb95900d55dbcec4745",
+        "android_client_info": {
+          "package_name": "com.nandaiqbalh.nontonmoviekotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095741329696-qfb5dg9jtr6at6a0uu150tfu4h1vn8o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB01BsyU0jOOak55jtrFbdCQU28JU11npk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095741329696-qfb5dg9jtr6at6a0uu150tfu4h1vn8o1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
