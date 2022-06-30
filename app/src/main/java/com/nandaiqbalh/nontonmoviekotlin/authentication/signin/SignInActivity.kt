@@ -2,6 +2,7 @@ package com.nandaiqbalh.nontonmoviekotlin.authentication.signin
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
@@ -13,6 +14,8 @@ import com.nandaiqbalh.nontonmoviekotlin.authentication.User
 import com.nandaiqbalh.nontonmoviekotlin.authentication.signup.SignUpActivity
 import com.nandaiqbalh.nontonmoviekotlin.home.HomeActivity
 import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
+import java.util.regex.Pattern
+
 
 class SignInActivity : AppCompatActivity() {
 
@@ -65,14 +68,30 @@ class SignInActivity : AppCompatActivity() {
         // btn sign in
         btnSignIn.setOnClickListener {
 
-            var txtUsername = edtUsername.text.toString()
-            var txtPassword = edtPassword.text.toString()
+            val txtUsername = edtUsername.text.toString().trim()
+            val txtPassword =
+                edtPassword.text.toString().trim { it <= ' ' } // untuk validasi password
 
-            if (txtUsername.equals("")) {
+            val PASSWORD_PATTERN: Pattern = Pattern.compile(
+                "^" +
+                        "(?=.*[0-9])" +  //at least 1 digit
+                        //"(?=.*[a-z])" +         //at least 1 lower case letter
+                        //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                        "(?=.*[a-zA-Z])" +  //any letter
+                        // "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                        // "(?=\\S+$)" +           //no white spaces
+                        ".{8,}" +  //at least 8 characters
+                        "$"
+            )
+
+            if (txtUsername.isEmpty()) {
                 edtUsername.error = "Oops! This field can not be blank!"
                 edtUsername.requestFocus()
-            } else if (txtPassword.equals("")) {
+            } else if (txtPassword.isEmpty()) {
                 edtPassword.error = "Oops! This field can not be blank!"
+                edtPassword.requestFocus()
+            } else if (!PASSWORD_PATTERN.matcher(txtPassword).matches()) {
+                edtPassword.error = "The password must have at least 8 digits with number and char!"
                 edtPassword.requestFocus()
             } else {
                 pushLogin(txtUsername, txtPassword)

@@ -1,15 +1,18 @@
 package com.nandaiqbalh.nontonmoviekotlin.authentication.signup
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.nandaiqbalh.nontonmoviekotlin.R
 import com.nandaiqbalh.nontonmoviekotlin.authentication.User
+import java.util.regex.Pattern
+
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -60,24 +63,45 @@ class SignUpActivity : AppCompatActivity() {
 
         btnNext.setOnClickListener {
 
-            var txtUsername = edtUsername.text.toString()
-            var txtPassword = edtPassword.text.toString()
-            var txtName = edtName.text.toString()
-            var txtEmail = edtEmail.text.toString()
+            var txtUsername = edtUsername.text.toString().trim()
+            var txtPassword = edtPassword.text.toString().trim()
+            var txtName = edtName.text.toString().trim()
+            var txtEmail = edtEmail.text.toString().trim()
 
-            if (txtUsername.equals("")) {
+            val passwordInput =
+                edtPassword.text.toString().trim { it <= ' ' } // untuk validasi password
+
+            val PASSWORD_PATTERN = Pattern.compile(
+                "^" +
+                        "(?=.*[0-9])" +  //at least 1 digit
+                        //"(?=.*[a-z])" +         //at least 1 lower case letter
+                        //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                        "(?=.*[a-zA-Z])" +  //any letter
+                        // "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                        // "(?=\\S+$)" +           //no white spaces
+                        ".{8,}" +  //at least 8 characters
+                        "$"
+            )
+
+            if (txtUsername.isEmpty()) {
                 edtUsername.error = "Oops! This field can not be blank!"
                 edtUsername.requestFocus()
-            } else if (txtPassword.equals("")) {
+            } else if (passwordInput.isEmpty()) {
                 edtPassword.error = "Oops! This field can not be blank!"
                 edtPassword.requestFocus()
-            } else if (txtName.equals("")) {
+            } else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
+                edtPassword.error = "The password must have at least 8 digits with number and char!"
+                edtPassword.requestFocus()
+            } else if (txtName.isEmpty()) {
                 edtName.error = "Oops! This field can not be blank!"
                 edtName.requestFocus()
-            } else if (txtEmail.equals("")) {
+            } else if (txtEmail.isEmpty()) {
                 edtEmail.error = "Oops! This field can not be blank!"
                 edtEmail.requestFocus()
-            }else {
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(txtEmail).matches()) {
+                edtEmail.error = "The email address you entered is not valid!"
+                edtEmail.requestFocus()
+            } else {
                 saveUser(txtUsername, txtPassword, txtName, txtEmail)
             }
         }
@@ -114,7 +138,7 @@ class SignUpActivity : AppCompatActivity() {
                     // ketika sudah menambahkan ke database, arahkan screen ke Upload Photo Screen
                     var intent = Intent(this@SignUpActivity, SignUpPhotoScreenActivity::class.java).putExtra("name", dataUser.name)
                     startActivity(intent)
-                    Toast.makeText(this@SignUpActivity, "Successfully Register", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@SignUpActivity, "Successfully Register!", Toast.LENGTH_LONG).show()
 
                 } else {
 
