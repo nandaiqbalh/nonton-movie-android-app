@@ -8,7 +8,7 @@
     tools:context=".authentication.signup.SignUpPhotoScreenActivity">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/iv_profile"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +19,7 @@
         />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_save"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -31,13 +31,13 @@
         android:textColor="@color/background_color_main"
         android:textSize="24sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/btn_skip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_skip"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -70,24 +70,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
-
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_welcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="42dp"
         android:layout_marginEnd="16dp"
-        android:text="Welcome,\nUser"
+        tools:text="Welcome,\nUser"
         android:textSize="20sp"
         android:fontFamily="@font/montserrat_medium"
         android:textColor="@color/white"
@@ -95,5 +85,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <ImageView
+        android:id="@+id/btn_upload"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
+        app:layout_constraintEnd_toEndOf="@+id/iv_profile"
+        app:srcCompat="@drawable/ic_btn_add"
+        android:background="@drawable/shape_eclipse_add"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
