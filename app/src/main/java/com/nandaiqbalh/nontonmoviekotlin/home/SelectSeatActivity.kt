@@ -2,11 +2,13 @@ package com.nandaiqbalh.nontonmoviekotlin.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.nandaiqbalh.nontonmoviekotlin.R
+import com.nandaiqbalh.nontonmoviekotlin.model.Checkout
 import com.nandaiqbalh.nontonmoviekotlin.model.Film
 
 class SelectSeatActivity : AppCompatActivity() {
@@ -15,6 +17,9 @@ class SelectSeatActivity : AppCompatActivity() {
 
     private lateinit var btnBookTicket: Button
     private lateinit var btnBack: ImageView
+
+    private var total: Int = 0
+    private var dataList = ArrayList<Checkout>()
 
     private lateinit var kursiA1: ImageView
     private lateinit var kursiA2: ImageView
@@ -51,40 +56,40 @@ class SelectSeatActivity : AppCompatActivity() {
     private lateinit var kursiE5: ImageView
     private lateinit var kursiE6: ImageView
 
-    var statusA1: Boolean = false
-    var statusA2: Boolean = false
-    var statusA3: Boolean = false
-    var statusA4: Boolean = false
-    var statusA5: Boolean = false
-    var statusA6: Boolean = false
+    private var statusA1: Boolean = false
+    private var statusA2: Boolean = false
+    private var statusA3: Boolean = false
+    private var statusA4: Boolean = false
+    private var statusA5: Boolean = false
+    private var statusA6: Boolean = false
 
-    var statusB1: Boolean = false
-    var statusB2: Boolean = false
-    var statusB3: Boolean = false
-    var statusB4: Boolean = false
-    var statusB5: Boolean = false
-    var statusB6: Boolean = false
+    private var statusB1: Boolean = false
+    private var statusB2: Boolean = false
+    private var statusB3: Boolean = false
+    private var statusB4: Boolean = false
+    private var statusB5: Boolean = false
+    private var statusB6: Boolean = false
 
-    var statusC1: Boolean = false
-    var statusC2: Boolean = false
-    var statusC3: Boolean = false
-    var statusC4: Boolean = false
-    var statusC5: Boolean = false
-    var statusC6: Boolean = false
+    private var statusC1: Boolean = false
+    private var statusC2: Boolean = false
+    private var statusC3: Boolean = false
+    private var statusC4: Boolean = false
+    private var statusC5: Boolean = false
+    private var statusC6: Boolean = false
 
-    var statusD1: Boolean = false
-    var statusD2: Boolean = false
-    var statusD3: Boolean = false
-    var statusD4: Boolean = false
-    var statusD5: Boolean = false
-    var statusD6: Boolean = false
+    private var statusD1: Boolean = false
+    private var statusD2: Boolean = false
+    private var statusD3: Boolean = false
+    private var statusD4: Boolean = false
+    private var statusD5: Boolean = false
+    private var statusD6: Boolean = false
 
-    var statusE1: Boolean = false
-    var statusE2: Boolean = false
-    var statusE3: Boolean = false
-    var statusE4: Boolean = false
-    var statusE5: Boolean = false
-    var statusE6: Boolean = false
+    private var statusE1: Boolean = false
+    private var statusE2: Boolean = false
+    private var statusE3: Boolean = false
+    private var statusE4: Boolean = false
+    private var statusE5: Boolean = false
+    private var statusE6: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,6 +106,8 @@ class SelectSeatActivity : AppCompatActivity() {
 
         // main button
         mainButton()
+
+
     }
 
     private fun init() {
@@ -159,6 +166,575 @@ class SelectSeatActivity : AppCompatActivity() {
         btnBack.setOnClickListener {
             var intent = Intent(this@SelectSeatActivity, DetailActivity::class.java)
             startActivity(intent)
+        }
+
+        checkoutKursiA()
+        checkoutKursiB()
+        checkoutKursiC()
+        checkoutKursiD()
+        checkoutKursiE()
+
+    }
+
+    private fun beliTiket(total: Int) {
+
+        if (total == 0 ){
+            btnBookTicket.setText("Checkout")
+            btnBookTicket.visibility = View.INVISIBLE
+        } else {
+            btnBookTicket.setText("Checkout (${total})")
+            btnBookTicket.visibility = View.VISIBLE
+        }
+    }
+
+
+    private fun checkoutKursiA() {
+        kursiA1.setOnClickListener {
+            if (statusA1){
+                kursiA1.setImageResource(R.drawable.shape_line_empty_seats)
+                statusA1 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiA1.setImageResource(R.drawable.shape_line_selected_seats)
+                statusA1 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("A1", "30000")
+                dataList.add(data)
+            }
+        }
+
+        kursiA2.setOnClickListener {
+            if (statusA2){
+                kursiA2.setImageResource(R.drawable.shape_line_empty_seats)
+                statusA2 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiA2.setImageResource(R.drawable.shape_line_selected_seats)
+                statusA2 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("A2", "30000")
+                dataList.add(data)
+            }
+        }
+
+        kursiA3.setOnClickListener {
+            if (statusA3){
+                kursiA3.setImageResource(R.drawable.shape_line_empty_seats)
+                statusA3 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiA3.setImageResource(R.drawable.shape_line_selected_seats)
+                statusA3 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("A3", "30000")
+                dataList.add(data)
+            }
+        }
+
+        kursiA4.setOnClickListener {
+            if (statusA4){
+                kursiA4.setImageResource(R.drawable.shape_line_empty_seats)
+                statusA4 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiA4.setImageResource(R.drawable.shape_line_selected_seats)
+                statusA4 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("A4", "30000")
+                dataList.add(data)
+            }
+        }
+
+        kursiA5.setOnClickListener {
+            if (statusA5){
+                kursiA5.setImageResource(R.drawable.shape_line_empty_seats)
+                statusA5 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiA5.setImageResource(R.drawable.shape_line_selected_seats)
+                statusA5 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("A5", "30000")
+                dataList.add(data)
+            }
+        }
+
+        kursiA6.setOnClickListener {
+            if (statusA6){
+                kursiA6.setImageResource(R.drawable.shape_line_empty_seats)
+                statusA6 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiA6.setImageResource(R.drawable.shape_line_selected_seats)
+                statusA6 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("A6", "30000")
+                dataList.add(data)
+            }
+        }
+    }
+
+    private fun checkoutKursiB() {
+        kursiB1.setOnClickListener {
+            if (statusB1){
+                kursiB1.setImageResource(R.drawable.shape_line_empty_seats)
+                statusB1 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiB1.setImageResource(R.drawable.shape_line_selected_seats)
+                statusB1 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("B1", "35000")
+                dataList.add(data)
+            }
+        }
+
+        kursiB2.setOnClickListener {
+            if (statusB2){
+                kursiB2.setImageResource(R.drawable.shape_line_empty_seats)
+                statusB2 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiB2.setImageResource(R.drawable.shape_line_selected_seats)
+                statusB2 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("B2", "35000")
+                dataList.add(data)
+            }
+        }
+
+        kursiB3.setOnClickListener {
+            if (statusB3){
+                kursiB3.setImageResource(R.drawable.shape_line_empty_seats)
+                statusB3 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiB3.setImageResource(R.drawable.shape_line_selected_seats)
+                statusB3 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("B3", "35000")
+                dataList.add(data)
+            }
+        }
+
+        kursiB4.setOnClickListener {
+            if (statusB4){
+                kursiB4.setImageResource(R.drawable.shape_line_empty_seats)
+                statusB4 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiB4.setImageResource(R.drawable.shape_line_selected_seats)
+                statusB4 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("B4", "35000")
+                dataList.add(data)
+            }
+        }
+
+        kursiB5.setOnClickListener {
+            if (statusB5){
+                kursiB5.setImageResource(R.drawable.shape_line_empty_seats)
+                statusB5 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiB5.setImageResource(R.drawable.shape_line_selected_seats)
+                statusB5 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("B5", "35000")
+                dataList.add(data)
+            }
+        }
+
+        kursiB6.setOnClickListener {
+            if (statusB6){
+                kursiB6.setImageResource(R.drawable.shape_line_empty_seats)
+                statusB6 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiB6.setImageResource(R.drawable.shape_line_selected_seats)
+                statusB6 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("B6", "35000")
+                dataList.add(data)
+            }
+        }
+    }
+
+    private fun checkoutKursiC() {
+        kursiC1.setOnClickListener {
+            if (statusC1){
+                kursiC1.setImageResource(R.drawable.shape_line_empty_seats)
+                statusC1 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiC1.setImageResource(R.drawable.shape_line_selected_seats)
+                statusC1 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("C1", "40000")
+                dataList.add(data)
+            }
+        }
+
+        kursiC2.setOnClickListener {
+            if (statusC2){
+                kursiC2.setImageResource(R.drawable.shape_line_empty_seats)
+                statusC2 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiC2.setImageResource(R.drawable.shape_line_selected_seats)
+                statusC2 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("C2", "40000")
+                dataList.add(data)
+            }
+        }
+
+        kursiC3.setOnClickListener {
+            if (statusC3){
+                kursiC3.setImageResource(R.drawable.shape_line_empty_seats)
+                statusC3 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiC3.setImageResource(R.drawable.shape_line_selected_seats)
+                statusC3 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("C3", "40000")
+                dataList.add(data)
+            }
+        }
+
+        kursiC4.setOnClickListener {
+            if (statusC4){
+                kursiC4.setImageResource(R.drawable.shape_line_empty_seats)
+                statusC4 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiC4.setImageResource(R.drawable.shape_line_selected_seats)
+                statusC4 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("C4", "40000")
+                dataList.add(data)
+            }
+        }
+
+        kursiC5.setOnClickListener {
+            if (statusC5){
+                kursiC5.setImageResource(R.drawable.shape_line_empty_seats)
+                statusC5 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiC5.setImageResource(R.drawable.shape_line_selected_seats)
+                statusC5 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("C5", "40000")
+                dataList.add(data)
+            }
+        }
+
+        kursiC6.setOnClickListener {
+            if (statusC6){
+                kursiC6.setImageResource(R.drawable.shape_line_empty_seats)
+                statusC6 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiC6.setImageResource(R.drawable.shape_line_selected_seats)
+                statusC6 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("C6", "40000")
+                dataList.add(data)
+            }
+        }
+    }
+
+    private fun checkoutKursiD() {
+        kursiD1.setOnClickListener {
+            if (statusD1){
+                kursiD1.setImageResource(R.drawable.shape_line_empty_seats)
+                statusD1 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiD1.setImageResource(R.drawable.shape_line_selected_seats)
+                statusD1 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("D1", "45000")
+                dataList.add(data)
+            }
+        }
+
+        kursiD2.setOnClickListener {
+            if (statusD2){
+                kursiD2.setImageResource(R.drawable.shape_line_empty_seats)
+                statusD2 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiD2.setImageResource(R.drawable.shape_line_selected_seats)
+                statusD2 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("D2", "45000")
+                dataList.add(data)
+            }
+        }
+
+        kursiD3.setOnClickListener {
+            if (statusD3){
+                kursiD3.setImageResource(R.drawable.shape_line_empty_seats)
+                statusD3 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiD3.setImageResource(R.drawable.shape_line_selected_seats)
+                statusD3 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("D3", "45000")
+                dataList.add(data)
+            }
+        }
+
+        kursiD4.setOnClickListener {
+            if (statusD4){
+                kursiD4.setImageResource(R.drawable.shape_line_empty_seats)
+                statusD4 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiD4.setImageResource(R.drawable.shape_line_selected_seats)
+                statusD4 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("D4", "45000")
+                dataList.add(data)
+            }
+        }
+
+        kursiD5.setOnClickListener {
+            if (statusD5){
+                kursiD5.setImageResource(R.drawable.shape_line_empty_seats)
+                statusD5 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiD5.setImageResource(R.drawable.shape_line_selected_seats)
+                statusD5 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("D5", "45000")
+                dataList.add(data)
+            }
+        }
+
+        kursiD6.setOnClickListener {
+            if (statusD6){
+                kursiD6.setImageResource(R.drawable.shape_line_empty_seats)
+                statusD6 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiD6.setImageResource(R.drawable.shape_line_selected_seats)
+                statusD6 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("D6", "45000")
+                dataList.add(data)
+            }
+        }
+    }
+
+    private fun checkoutKursiE() {
+        kursiE1.setOnClickListener {
+            if (statusE1){
+                kursiE1.setImageResource(R.drawable.shape_line_empty_seats)
+                statusE1 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiE1.setImageResource(R.drawable.shape_line_selected_seats)
+                statusE1 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("E1", "50000")
+                dataList.add(data)
+            }
+        }
+
+        kursiE2.setOnClickListener {
+            if (statusE2){
+                kursiE2.setImageResource(R.drawable.shape_line_empty_seats)
+                statusE2 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiE2.setImageResource(R.drawable.shape_line_selected_seats)
+                statusE2 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("E2", "50000")
+                dataList.add(data)
+            }
+        }
+
+        kursiE3.setOnClickListener {
+            if (statusE3){
+                kursiE3.setImageResource(R.drawable.shape_line_empty_seats)
+                statusE3 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiE3.setImageResource(R.drawable.shape_line_selected_seats)
+                statusE3 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("E3", "50000")
+                dataList.add(data)
+            }
+        }
+
+        kursiE4.setOnClickListener {
+            if (statusE4){
+                kursiE4.setImageResource(R.drawable.shape_line_empty_seats)
+                statusE4 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiE4.setImageResource(R.drawable.shape_line_selected_seats)
+                statusE4 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("E4", "50000")
+                dataList.add(data)
+            }
+        }
+
+        kursiE5.setOnClickListener {
+            if (statusE5){
+                kursiE5.setImageResource(R.drawable.shape_line_empty_seats)
+                statusE5 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiE5.setImageResource(R.drawable.shape_line_selected_seats)
+                statusE5 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("E5", "50000")
+                dataList.add(data)
+            }
+        }
+
+        kursiE6.setOnClickListener {
+            if (statusE6){
+                kursiE6.setImageResource(R.drawable.shape_line_empty_seats)
+                statusE6 = false
+                total -= 1
+                beliTiket(total)
+            } else {
+                kursiE6.setImageResource(R.drawable.shape_line_selected_seats)
+                statusE6 = true
+                total += 1
+                beliTiket(total)
+
+                // set data
+                val data = Checkout("E6", "50000")
+                dataList.add(data)
+            }
         }
     }
 }
