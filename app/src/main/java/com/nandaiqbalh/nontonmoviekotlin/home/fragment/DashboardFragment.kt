@@ -18,6 +18,7 @@ import com.google.firebase.database.*
 import com.nandaiqbalh.nontonmoviekotlin.R
 import com.nandaiqbalh.nontonmoviekotlin.adapter.ComingSoonAdapter
 import com.nandaiqbalh.nontonmoviekotlin.adapter.NowPlayingAdapter
+import com.nandaiqbalh.nontonmoviekotlin.home.DetailActivity
 import com.nandaiqbalh.nontonmoviekotlin.model.Film
 import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
 import java.text.NumberFormat
@@ -150,12 +151,16 @@ class DashboardFragment : Fragment() {
                     rvNowPlaying.adapter  = NowPlayingAdapter(dataList){
 
                         // jika dipencet akan ke halaman detail
+                        var intent = Intent(context, DetailActivity::class.java).putExtra("data", it)
+                        startActivity(intent)
 
                     }
 
                     rvComingSoon.adapter  = ComingSoonAdapter(dataList){
 
                         // jika dipencet akan ke halaman detail
+                        var intent = Intent(context, DetailActivity::class.java).putExtra("data", it)
+                        startActivity(intent)
 
                     }
                 }

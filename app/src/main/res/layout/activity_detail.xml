@@ -8,7 +8,7 @@
     tools:context=".home.DetailActivity">
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/iv_poster_detail"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
         android:scaleType="centerCrop"
@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/iv_poster" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tv_title_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -28,10 +28,10 @@
         android:textColor="@color/white"
         android:text="@string/movie_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_poster_detail" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/tv_genre_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -41,7 +41,7 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_detail" />
 
     <TextView
         android:id="@+id/textView13"
@@ -54,10 +54,10 @@
         android:textColor="@color/white"
         android:fontFamily="@font/montserrat_regular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_rate_detail" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/tv_description_detail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
         android:fontFamily="@font/montserrat_regular"
         android:textColor="@color/secondary_color"
         android:textSize="14sp"
-        android:text="Allied soldiers from Belgium, the British Commonwealth and Empire, and France are surrounded by the German Army and evacuated during a fierce battle inWorld War II."
+        tools:text="Allied soldiers from Belgium, the British Commonwealth and Empire, and France are surrounded by the German Army and evacuated during a fierce battle inWorld War II."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -81,9 +81,10 @@
         android:textColor="@color/white"
         android:text="@string/who_s_played"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_description_detail" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_player"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -93,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_select_seats"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -107,4 +108,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_rate_detail"
+        android:layout_width="101dp"
+        android:layout_height="20dp"
+        android:drawableStart="@drawable/ic_star_yellow_24"
+        android:drawablePadding="5dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_light"
+        android:gravity="center"
+        android:textColor="@color/btn_primary"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_genre_detail"
+        tools:text="Rating : 7.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
