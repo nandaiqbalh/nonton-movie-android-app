@@ -1,7 +1,9 @@
 package com.nandaiqbalh.nontonmoviekotlin.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -21,6 +23,8 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var tvGenreDetail: TextView
     private lateinit var tvRateDetail: TextView
     private lateinit var tvDescriptionDetail: TextView
+
+    private lateinit var btnSelectSeats : Button
 
     private lateinit var rvWhosPlay: RecyclerView
 
@@ -43,6 +47,9 @@ class DetailActivity : AppCompatActivity() {
         // who play
         whoPlay()
 
+        // button pressed
+        mainButton(data)
+
     }
     
     private fun init(data: Film?){
@@ -52,12 +59,23 @@ class DetailActivity : AppCompatActivity() {
         tvRateDetail = findViewById(R.id.tv_rate_detail)
         tvDescriptionDetail = findViewById(R.id.tv_description_detail)
 
+        btnSelectSeats = findViewById(R.id.btn_select_seats)
+
         rvWhosPlay = findViewById(R.id.rv_player)
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Film")
             .child(data?.judul.toString())
             .child("play")
 
+    }
+
+    private fun mainButton(data: Film?){
+        btnSelectSeats.setOnClickListener {
+
+            var intent = Intent(this@DetailActivity, SelectSeatActivity::class.java).putExtra("data", data)
+            startActivity(intent)
+
+        }
     }
 
     private fun ambilData(data: Film?){

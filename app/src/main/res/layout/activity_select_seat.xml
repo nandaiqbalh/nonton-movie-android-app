@@ -8,7 +8,7 @@
     tools:context=".home.SelectSeatActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_book_ticket"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -43,9 +43,9 @@
 
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/btn_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,13 +54,13 @@
 
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/tv_title_film"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/judul_film_select_seats"
+        tools:text="@string/judul_film_select_seats"
         android:fontFamily="@font/montserrat_regular"
         android:textSize="20sp"
         android:textColor="@color/white"
@@ -75,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_film"
         app:srcCompat="@drawable/iv_cinema_screen" />
 
     <TextView
@@ -106,6 +106,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView7">
 
         <ImageView
+            android:id="@+id/a1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -113,6 +114,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/a2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -120,6 +122,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/a3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -138,6 +141,7 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:id="@+id/a4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -145,6 +149,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/a5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -152,6 +157,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/a6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -174,6 +180,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <ImageView
+            android:id="@+id/b1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -181,6 +188,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/b2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -188,6 +196,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/b3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -206,6 +215,7 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:id="@+id/b4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -213,6 +223,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/b5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -220,6 +231,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/b6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -244,6 +256,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <ImageView
+            android:id="@+id/c1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -251,6 +264,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/c2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -258,6 +272,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/c3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -276,6 +291,7 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:id="@+id/c4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -283,6 +299,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/c5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -290,6 +307,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/c6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -313,6 +331,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <ImageView
+            android:id="@+id/d1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -320,6 +339,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/d2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -327,6 +347,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/d3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -345,6 +366,7 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:id="@+id/d4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -352,6 +374,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/d5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -359,6 +382,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/d6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -381,6 +405,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <ImageView
+            android:id="@+id/e1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -388,6 +413,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/e2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -395,6 +421,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/e3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -413,6 +440,7 @@
             android:textSize="20sp" />
 
         <ImageView
+            android:id="@+id/e4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -420,6 +448,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/e5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -427,6 +456,7 @@
             android:src="@drawable/shape_line_empty_seats" />
 
         <ImageView
+            android:id="@+id/e6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
@@ -442,7 +472,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_book_ticket"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
