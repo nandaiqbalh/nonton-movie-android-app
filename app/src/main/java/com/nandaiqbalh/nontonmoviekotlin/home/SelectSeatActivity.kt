@@ -2,12 +2,14 @@ package com.nandaiqbalh.nontonmoviekotlin.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.nandaiqbalh.nontonmoviekotlin.R
+import com.nandaiqbalh.nontonmoviekotlin.checkout.CheckoutActivity
 import com.nandaiqbalh.nontonmoviekotlin.model.Checkout
 import com.nandaiqbalh.nontonmoviekotlin.model.Film
 
@@ -20,6 +22,7 @@ class SelectSeatActivity : AppCompatActivity() {
 
     private var total: Int = 0
     private var dataList = ArrayList<Checkout>()
+
 
     private lateinit var kursiA1: ImageView
     private lateinit var kursiA2: ImageView
@@ -91,6 +94,41 @@ class SelectSeatActivity : AppCompatActivity() {
     private var statusE5: Boolean = false
     private var statusE6: Boolean = false
 
+    private var isAddedA1: Boolean = false
+    private var isAddedA2: Boolean = false
+    private var isAddedA3: Boolean = false
+    private var isAddedA4: Boolean = false
+    private var isAddedA5: Boolean = false
+    private var isAddedA6: Boolean = false
+
+    private var isAddedB1: Boolean = false
+    private var isAddedB2: Boolean = false
+    private var isAddedB3: Boolean = false
+    private var isAddedB4: Boolean = false
+    private var isAddedB5: Boolean = false
+    private var isAddedB6: Boolean = false
+
+    private var isAddedC1: Boolean = false
+    private var isAddedC2: Boolean = false
+    private var isAddedC3: Boolean = false
+    private var isAddedC4: Boolean = false
+    private var isAddedC5: Boolean = false
+    private var isAddedC6: Boolean = false
+
+    private var isAddedD1: Boolean = false
+    private var isAddedD2: Boolean = false
+    private var isAddedD3: Boolean = false
+    private var isAddedD4: Boolean = false
+    private var isAddedD5: Boolean = false
+    private var isAddedD6: Boolean = false
+
+    private var isAddedE1: Boolean = false
+    private var isAddedE2: Boolean = false
+    private var isAddedE3: Boolean = false
+    private var isAddedE4: Boolean = false
+    private var isAddedE5: Boolean = false
+    private var isAddedE6: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_seat)
@@ -105,7 +143,7 @@ class SelectSeatActivity : AppCompatActivity() {
         setData(data)
 
         // main button
-        mainButton()
+        mainButton(data)
 
 
     }
@@ -160,11 +198,11 @@ class SelectSeatActivity : AppCompatActivity() {
         tvTitleFilm.setText(data?.judul)
     }
 
-    private fun mainButton() {
+    private fun mainButton(data: Film?) {
 
         // back
         btnBack.setOnClickListener {
-            var intent = Intent(this@SelectSeatActivity, DetailActivity::class.java)
+            var intent = Intent(this@SelectSeatActivity, HomeActivity::class.java)
             startActivity(intent)
         }
 
@@ -173,6 +211,12 @@ class SelectSeatActivity : AppCompatActivity() {
         checkoutKursiC()
         checkoutKursiD()
         checkoutKursiE()
+
+        btnBookTicket.setOnClickListener {
+
+            var intent = Intent(this@SelectSeatActivity, CheckoutActivity::class.java).putExtra("data", dataList)
+            startActivity(intent)
+        }
 
     }
 
@@ -195,15 +239,22 @@ class SelectSeatActivity : AppCompatActivity() {
                 statusA1 = false
                 total -= 1
                 beliTiket(total)
+
             } else {
                 kursiA1.setImageResource(R.drawable.shape_line_selected_seats)
                 statusA1 = true
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("A1", "30000")
-                dataList.add(data)
+                if (isAddedA1 == false){
+                    // set data
+                    val data = Checkout("A1", "30000")
+                    dataList.add(data)
+
+                    isAddedA1 = true
+                }
+
+
             }
         }
 
@@ -219,9 +270,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("A2", "30000")
-                dataList.add(data)
+                if (isAddedA2 == false){
+                    // set data
+                    val data = Checkout("A2", "30000")
+                    dataList.add(data)
+
+                    isAddedA2 = true
+                }
             }
         }
 
@@ -237,9 +292,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("A3", "30000")
-                dataList.add(data)
+                if (isAddedA3 == false){
+                    // set data
+                    val data = Checkout("A3", "30000")
+                    dataList.add(data)
+
+                    isAddedA3 = true
+                }
             }
         }
 
@@ -255,9 +314,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("A4", "30000")
-                dataList.add(data)
+                if (isAddedA4 == false){
+                    // set data
+                    val data = Checkout("A4", "30000")
+                    dataList.add(data)
+
+                    isAddedA4 = true
+                }
             }
         }
 
@@ -273,9 +336,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("A5", "30000")
-                dataList.add(data)
+                if (isAddedA5 == false){
+                    // set data
+                    val data = Checkout("A5", "30000")
+                    dataList.add(data)
+
+                    isAddedA5 = true
+                }
             }
         }
 
@@ -291,9 +358,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("A6", "30000")
-                dataList.add(data)
+                if (isAddedA6 == false){
+                    // set data
+                    val data = Checkout("A6", "30000")
+                    dataList.add(data)
+
+                    isAddedA6 = true
+                }
             }
         }
     }
@@ -311,9 +382,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("B1", "35000")
-                dataList.add(data)
+                if (isAddedB1 == false){
+                    // set data
+                    val data = Checkout("B1", "35000")
+                    dataList.add(data)
+
+                    isAddedB1 = true
+                }
             }
         }
 
@@ -329,9 +404,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("B2", "35000")
-                dataList.add(data)
+                if (isAddedB2 == false){
+                    // set data
+                    val data = Checkout("B2", "35000")
+                    dataList.add(data)
+
+                    isAddedB2 = true
+                }
             }
         }
 
@@ -347,9 +426,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("B3", "35000")
-                dataList.add(data)
+                if (isAddedB3 == false){
+                    // set data
+                    val data = Checkout("B3", "35000")
+                    dataList.add(data)
+
+                    isAddedB3 = true
+                }
             }
         }
 
@@ -365,9 +448,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("B4", "35000")
-                dataList.add(data)
+                if (isAddedB4 == false){
+                    // set data
+                    val data = Checkout("B4", "35000")
+                    dataList.add(data)
+
+                    isAddedB4 = true
+                }
             }
         }
 
@@ -383,9 +470,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("B5", "35000")
-                dataList.add(data)
+                if (isAddedB5 == false){
+                    // set data
+                    val data = Checkout("B5", "35000")
+                    dataList.add(data)
+
+                    isAddedB5 = true
+                }
             }
         }
 
@@ -401,9 +492,13 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("B6", "35000")
-                dataList.add(data)
+                if (isAddedB6 == false){
+                    // set data
+                    val data = Checkout("B6", "35000")
+                    dataList.add(data)
+
+                    isAddedB6 = true
+                }
             }
         }
     }
@@ -421,9 +516,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("C1", "40000")
-                dataList.add(data)
+
+                if (isAddedC1 == false){
+                    // set data
+                    val data = Checkout("C1", "40000")
+                    dataList.add(data)
+
+                    isAddedC1 = true
+                }
             }
         }
 
@@ -439,9 +539,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("C2", "40000")
-                dataList.add(data)
+
+                if (isAddedC2 == false){
+                    // set data
+                    val data = Checkout("C2", "40000")
+                    dataList.add(data)
+
+                    isAddedC2 = true
+                }
             }
         }
 
@@ -457,9 +562,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("C3", "40000")
-                dataList.add(data)
+
+                if (isAddedC3 == false){
+                    // set data
+                    val data = Checkout("C3", "40000")
+                    dataList.add(data)
+
+                    isAddedC3 = true
+                }
             }
         }
 
@@ -475,9 +585,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("C4", "40000")
-                dataList.add(data)
+
+                if (isAddedC4 == false){
+                    // set data
+                    val data = Checkout("C4", "40000")
+                    dataList.add(data)
+
+                    isAddedC4 = true
+                }
             }
         }
 
@@ -493,9 +608,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("C5", "40000")
-                dataList.add(data)
+
+                if (isAddedC5 == false){
+                    // set data
+                    val data = Checkout("C5", "40000")
+                    dataList.add(data)
+
+                    isAddedC5 = true
+                }
             }
         }
 
@@ -511,9 +631,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("C6", "40000")
-                dataList.add(data)
+
+                if (isAddedC6 == false){
+                    // set data
+                    val data = Checkout("C6", "40000")
+                    dataList.add(data)
+
+                    isAddedC6 = true
+                }
             }
         }
     }
@@ -531,9 +656,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("D1", "45000")
-                dataList.add(data)
+
+                if (isAddedD1 == false){
+                    // set data
+                    val data = Checkout("D1", "45000")
+                    dataList.add(data)
+
+                    isAddedD1 = true
+                }
             }
         }
 
@@ -549,9 +679,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("D2", "45000")
-                dataList.add(data)
+
+                if (isAddedD2 == false){
+                    // set data
+                    val data = Checkout("D2", "45000")
+                    dataList.add(data)
+
+                    isAddedD2 = true
+                }
             }
         }
 
@@ -567,9 +702,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("D3", "45000")
-                dataList.add(data)
+
+                if (isAddedD3 == false){
+                    // set data
+                    val data = Checkout("D3", "45000")
+                    dataList.add(data)
+
+                    isAddedD3 = true
+                }
             }
         }
 
@@ -585,9 +725,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("D4", "45000")
-                dataList.add(data)
+
+                if (isAddedD4 == false){
+                    // set data
+                    val data = Checkout("D4", "45000")
+                    dataList.add(data)
+
+                    isAddedD4 = true
+                }
             }
         }
 
@@ -603,9 +748,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("D5", "45000")
-                dataList.add(data)
+
+                if (isAddedD5 == false){
+                    // set data
+                    val data = Checkout("D5", "45000")
+                    dataList.add(data)
+
+                    isAddedD5 = true
+                }
             }
         }
 
@@ -621,9 +771,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("D6", "45000")
-                dataList.add(data)
+
+                if (isAddedD6 == false){
+                    // set data
+                    val data = Checkout("D6", "45000")
+                    dataList.add(data)
+
+                    isAddedD6 = true
+                }
             }
         }
     }
@@ -641,9 +796,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("E1", "50000")
-                dataList.add(data)
+
+                if (isAddedE1 == false){
+                    // set data
+                    val data = Checkout("E1", "50000")
+                    dataList.add(data)
+
+                    isAddedE1 = true
+                }
             }
         }
 
@@ -659,9 +819,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("E2", "50000")
-                dataList.add(data)
+
+                if (isAddedE2 == false){
+                    // set data
+                    val data = Checkout("E2", "50000")
+                    dataList.add(data)
+
+                    isAddedE2 = true
+                }
             }
         }
 
@@ -677,9 +842,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("E3", "50000")
-                dataList.add(data)
+
+                if (isAddedE3 == false){
+                    // set data
+                    val data = Checkout("E3", "50000")
+                    dataList.add(data)
+
+                    isAddedE3 = true
+                }
             }
         }
 
@@ -695,9 +865,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("E4", "50000")
-                dataList.add(data)
+
+                if (isAddedE4 == false){
+                    // set data
+                    val data = Checkout("E4", "50000")
+                    dataList.add(data)
+
+                    isAddedE4 = true
+                }
             }
         }
 
@@ -713,9 +888,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("E5", "50000")
-                dataList.add(data)
+
+                if (isAddedE5 == false){
+                    // set data
+                    val data = Checkout("E5", "50000")
+                    dataList.add(data)
+
+                    isAddedE5 = true
+                }
             }
         }
 
@@ -731,9 +911,14 @@ class SelectSeatActivity : AppCompatActivity() {
                 total += 1
                 beliTiket(total)
 
-                // set data
-                val data = Checkout("E6", "50000")
-                dataList.add(data)
+
+                if (isAddedE6 == false){
+                    // set data
+                    val data = Checkout("E6", "50000")
+                    dataList.add(data)
+
+                    isAddedE6 = true
+                }
             }
         }
     }
