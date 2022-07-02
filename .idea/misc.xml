@@ -7,6 +7,7 @@
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/drawable/ic_seat_main.xml" value="0.21" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/drawable/ic_star_main_color_24.xml" value="0.21" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/drawable/ic_star_yellow_24.xml" value="0.16" />
+        <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/drawable/ic_wallet.xml" value="0.21" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/drawable/shape_line.xml" value="0.21" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/drawable/shape_rectangle_blue.xml" value="0.1815" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/drawable/shape_rectangle_main.xml" value="0.21" />
@@ -29,7 +30,7 @@
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_splash_screenn.xml" value="0.161231884057971" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_ticket.xml" value="0.18" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/fragment_dashboard.xml" value="0.16" />
-        <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/fragment_setting.xml" value="0.1314189189189189" />
+        <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/fragment_setting.xml" value="0.22" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/fragment_ticket.xml" value="0.14" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/row_item_checkout.xml" value="0.25" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/row_item_coming_soon.xml" value="0.1314189189189189" />

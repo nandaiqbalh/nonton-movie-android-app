@@ -56,7 +56,6 @@ class DashboardFragment : Fragment() {
 
     private lateinit var tvName: TextView
     private lateinit var tvSaldo:TextView
-    private lateinit var ivProfile: ImageView
 
     private lateinit var rvNowPlaying: RecyclerView
     private lateinit var rvComingSoon: RecyclerView
@@ -103,7 +102,6 @@ class DashboardFragment : Fragment() {
 
         tvName = view.findViewById(R.id.tv_name)
         tvSaldo = view.findViewById(R.id.tv_saldo)
-        ivProfile = view.findViewById(R.id.iv_profile)
 
         rvNowPlaying = view.findViewById(R.id.rv_now_playing)
         rvComingSoon = view.findViewById(R.id.rv_coming_soon)
@@ -123,10 +121,6 @@ class DashboardFragment : Fragment() {
             currencyFormatter(0.0, tvSaldo)
         }
 
-        Glide.with(this)
-            .load(sharedPrefs.getValue("url"))
-            .apply(RequestOptions.circleCropTransform())
-            .into(ivProfile)
 
         rvNowPlaying.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         rvComingSoon.layoutManager = LinearLayoutManager(context) // defaultnya udah vertical, jadi gaperlu atur2

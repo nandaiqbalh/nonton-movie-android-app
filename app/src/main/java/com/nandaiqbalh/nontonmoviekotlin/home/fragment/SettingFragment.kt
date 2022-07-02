@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.nandaiqbalh.nontonmoviekotlin.R
+import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,12 +35,47 @@ class SettingFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private lateinit var tvName: TextView
+    private lateinit var tvEmail: TextView
+    private lateinit var ivProfile: ImageView
+
+    private lateinit var sharedPrefs: SharedPrefs
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+        var view = inflater.inflate(R.layout.fragment_setting, container, false)
+
+        // init
+        init(view)
+
+        // atur data
+        aturData()
+
+        return view
+    }
+
+    private fun init(view: View){
+
+        tvName = view.findViewById(R.id.tv_name_setting)
+        tvEmail = view.findViewById(R.id.tv_email_setting)
+        ivProfile = view.findViewById(R.id.iv_profile_setting)
+
+        sharedPrefs = SharedPrefs(requireActivity().applicationContext)
+    }
+
+    private fun aturData(){
+
+        tvName.text = sharedPrefs.getValue("name")
+        tvEmail.text = sharedPrefs.getValue("email")
+
+        if(sharedPrefs.getValue("url") != ""){
+
+            Glide.with(this)
+                .load(sharedPrefs.getValue("url"))
+                .apply(RequestOptions.circleCropTransform())
+                .into(ivProfile)
+        }
+
     }
 
     companion object {
