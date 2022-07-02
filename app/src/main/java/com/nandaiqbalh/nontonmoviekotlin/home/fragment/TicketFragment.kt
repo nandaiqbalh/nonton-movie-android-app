@@ -1,11 +1,21 @@
 package com.nandaiqbalh.nontonmoviekotlin.home.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 import com.nandaiqbalh.nontonmoviekotlin.R
+import com.nandaiqbalh.nontonmoviekotlin.adapter.ComingSoonAdapter
+import com.nandaiqbalh.nontonmoviekotlin.model.Film
+import com.nandaiqbalh.nontonmoviekotlin.ticket.TicketActivity
+import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,14 +40,75 @@ class TicketFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+
+    private lateinit var sharedPrefs: SharedPrefs
+    private lateinit var mDatabase: DatabaseReference
+    private var dataList = ArrayList<Film>()
+
+    private lateinit var rvTicket: RecyclerView
+    private lateinit var tvTotalMovies: TextView
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ticket, container, false)
+        var view = inflater.inflate(R.layout.fragment_ticket, container, false)
+
+        // init
+        init(view)
+
+        rvTicket.layoutManager = LinearLayoutManager(context)
+        getData()
+
+
+        return view
     }
 
+
+
+    private fun init(view: View){
+
+        sharedPrefs = SharedPrefs(requireActivity().applicationContext)
+        mDatabase = FirebaseDatabase.getInstance().getReference("Film")
+
+        rvTicket = view.findViewById(R.id.rv_ticket)
+        tvTotalMovies = view.findViewById(R.id.tv_total_movies)
+
+
+    }
+
+    private fun getData() {
+
+        mDatabase.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                // agar tidak double, kita clear dulu
+                dataList.clear()
+
+                for (ambilDataSnapshot in snapshot.children){
+
+                    val film = ambilDataSnapshot.getValue(Film::class.java)
+                    dataList.add(film!!)
+
+                }
+
+                rvTicket.adapter = ComingSoonAdapter(dataList){
+
+                    var intent = Intent(context, TicketActivity::class.java).putExtra("data", it)
+                    startActivity(intent)
+
+                }
+
+                // atur text total movies
+                tvTotalMovies.setText("${dataList.size} movies")
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+                Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_LONG ).show()
+            }
+
+        })
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
