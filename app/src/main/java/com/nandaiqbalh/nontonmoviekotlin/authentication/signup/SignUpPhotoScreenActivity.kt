@@ -2,6 +2,7 @@ package com.nandaiqbalh.nontonmoviekotlin.authentication.signup
 
 import android.R.attr
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Bitmap
@@ -17,6 +18,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.karumi.dexter.Dexter
@@ -141,7 +143,9 @@ class SignUpPhotoScreenActivity : AppCompatActivity(), PermissionListener {
                 
             } else {
                 // kalau status add masih false, masukkan ke dexter
-                Dexter.withActivity(this).withPermission(android.Manifest.permission.CAMERA).withListener(this).check()
+                ImagePicker.with(this)
+                    .cameraOnly()
+                    .start()
             }
         }
     }
@@ -167,21 +171,43 @@ class SignUpPhotoScreenActivity : AppCompatActivity(), PermissionListener {
         Toast.makeText(this@SignUpPhotoScreenActivity, "Upload profile picture later?", Toast.LENGTH_LONG).show()
     }
 
-    @SuppressLint("MissingSuperCall")
+//    @SuppressLint("MissingSuperCall")
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        if (requestCode === REQUEST_IMAGE_CAPTURE && requestCode === RESULT_OK) {
+//
+//            var bitmap = data?.extras?.get("data") as Bitmap
+//            statusAdd = true
+//
+//            filePath = data.getData()!!
+//            Glide.with(this)
+//                .load(bitmap)
+//                .apply(RequestOptions.centerCropTransform())
+//                .into(ivProfile)
+//
+//            btnSave.visibility = View.VISIBLE
+//            btnUpload.setImageResource(R.drawable.ic_btn_delete);
+//        }
+//    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode === REQUEST_IMAGE_CAPTURE && requestCode === RESULT_OK) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+                statusAdd = true
+            filePath= data?.data!!
 
-            var bitmap = data?.extras?.get("data") as Bitmap
-            statusAdd = true
-
-            filePath = data.getData()!!
             Glide.with(this)
-                .load(bitmap)
+                .load(filePath)
                 .apply(RequestOptions.centerCropTransform())
                 .into(ivProfile)
 
             btnSave.visibility = View.VISIBLE
             btnUpload.setImageResource(R.drawable.ic_btn_delete);
+
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show()
         }
     }
 }
