@@ -144,7 +144,6 @@ class SignUpPhotoScreenActivity : AppCompatActivity(), PermissionListener {
             } else {
                 // kalau status add masih false, masukkan ke dexter
                 ImagePicker.with(this)
-                    .cameraOnly()
                     .start()
             }
         }
