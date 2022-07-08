@@ -138,9 +138,9 @@ class CheckoutActivity : AppCompatActivity() {
 
         val builder = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
         builder.setContentIntent(pendingIntent)
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSmallIcon(R.drawable.icon_small_notif)
             .setLargeIcon(
-                BitmapFactory.decodeResource(this.resources, R.mipmap.ic_launcher)
+                BitmapFactory.decodeResource(this.resources, R.drawable.icon_large_notif)
             )
             .setTicker("notif nontonmovie starting")
             .setAutoCancel(true)
