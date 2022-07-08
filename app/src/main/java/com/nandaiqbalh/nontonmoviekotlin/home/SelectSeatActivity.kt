@@ -214,7 +214,7 @@ class SelectSeatActivity : AppCompatActivity() {
 
         btnBookTicket.setOnClickListener {
 
-            var intent = Intent(this@SelectSeatActivity, CheckoutActivity::class.java).putExtra("data", dataList)
+            var intent = Intent(this@SelectSeatActivity, CheckoutActivity::class.java).putExtra("data", dataList).putExtra("datas", data)
             startActivity(intent)
         }
 

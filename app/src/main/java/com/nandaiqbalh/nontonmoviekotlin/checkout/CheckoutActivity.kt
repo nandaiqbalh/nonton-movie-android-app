@@ -19,6 +19,8 @@ import com.nandaiqbalh.nontonmoviekotlin.R
 import com.nandaiqbalh.nontonmoviekotlin.adapter.CheckoutAdapter
 import com.nandaiqbalh.nontonmoviekotlin.home.HomeActivity
 import com.nandaiqbalh.nontonmoviekotlin.model.Checkout
+import com.nandaiqbalh.nontonmoviekotlin.model.Film
+import com.nandaiqbalh.nontonmoviekotlin.ticket.TicketActivity
 import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
 
 class CheckoutActivity : AppCompatActivity() {
@@ -42,6 +44,8 @@ class CheckoutActivity : AppCompatActivity() {
         // init
         init()
 
+        val data = intent.getParcelableExtra<Film>("datas")
+
         // MEMASUKKAN DATA DARI INTENT KE DALAM DATALIST
         dataList = intent.getSerializableExtra("data") as ArrayList<Checkout>
 
@@ -58,7 +62,7 @@ class CheckoutActivity : AppCompatActivity() {
             // do something
         }
 
-        mainButton()
+        mainButton(data)
 
         for (i in dataList.indices){
             Log.d("Datalist", "" + dataList[i].kursi.toString())
@@ -80,7 +84,7 @@ class CheckoutActivity : AppCompatActivity() {
 
     }
 
-    private fun mainButton(){
+    private fun mainButton(data: Film?){
 
         btnBack.setOnClickListener {
             var intent = Intent(this@CheckoutActivity, HomeActivity::class.java)
@@ -100,12 +104,12 @@ class CheckoutActivity : AppCompatActivity() {
             startActivity(intent)
 
             // show notification
-            showNotif()
+            showNotif(data)
         }
 
     }
 
-    private fun showNotif(){
+    private fun showNotif(datas: Film?){
 
         val NOTIFICATION_CHANNEL_ID = "nonton_movie" // jika kita memiliki banyak notifikasi, ID ini nanti bisa dijadikan penanda
         val context = this.applicationContext
@@ -120,9 +124,14 @@ class CheckoutActivity : AppCompatActivity() {
         }
 
         // on click notification
-        val mIntent = Intent(this, CheckoutSuccessActivity::class.java)
+//        val mIntent = Intent(this, CheckoutSuccessActivity::class.java)
+//        val bundle = Bundle()
+//        bundle.putString("id", "id_film")
+//        mIntent.putExtras(bundle)
+
+        val mIntent = Intent(this, TicketActivity::class.java)
         val bundle = Bundle()
-        bundle.putString("id", "id_film")
+        bundle.putParcelable("data", datas)
         mIntent.putExtras(bundle)
 
         val pendingIntent = PendingIntent.getActivity(this, 0 , mIntent, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -139,7 +148,7 @@ class CheckoutActivity : AppCompatActivity() {
             .setLights(Color.RED, 3000, 3000)
             .setDefaults(Notification.DEFAULT_SOUND)
             .setContentTitle("Payment Successful!")
-            .setContentText("NontonMovie")
+            .setContentText("Ticket for ${datas?.judul} successfully paid!")
 
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(115, builder.build())
