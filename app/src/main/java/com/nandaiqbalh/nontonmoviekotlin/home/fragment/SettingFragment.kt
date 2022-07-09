@@ -1,5 +1,6 @@
 package com.nandaiqbalh.nontonmoviekotlin.home.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.nandaiqbalh.nontonmoviekotlin.R
 import com.nandaiqbalh.nontonmoviekotlin.utils.SharedPrefs
+import com.nandaiqbalh.nontonmoviekotlin.wallet.MyWalletActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,6 +43,8 @@ class SettingFragment : Fragment() {
 
     private lateinit var sharedPrefs: SharedPrefs
 
+    private lateinit var btnMyWallet: TextView
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_setting, container, false)
@@ -51,6 +55,9 @@ class SettingFragment : Fragment() {
         // atur data
         aturData()
 
+        // btn triggered
+        mainButton(view)
+
         return view
     }
 
@@ -59,6 +66,8 @@ class SettingFragment : Fragment() {
         tvName = view.findViewById(R.id.tv_name_setting)
         tvEmail = view.findViewById(R.id.tv_email_setting)
         ivProfile = view.findViewById(R.id.iv_profile_setting)
+
+        btnMyWallet = view.findViewById(R.id.tv_my_wallet_setting)
 
         sharedPrefs = SharedPrefs(requireActivity().applicationContext)
     }
@@ -74,6 +83,15 @@ class SettingFragment : Fragment() {
                 .load(sharedPrefs.getValue("url"))
                 .apply(RequestOptions.circleCropTransform())
                 .into(ivProfile)
+        }
+
+    }
+
+    private fun mainButton(view: View){
+
+        btnMyWallet.setOnClickListener {
+            val intent = Intent(activity, MyWalletActivity::class.java)
+            startActivity(intent)
         }
 
     }

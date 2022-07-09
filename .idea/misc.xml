@@ -19,7 +19,7 @@
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_edit_profile.xml" value="0.13385416666666666" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_history.xml" value="0.1" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_home.xml" value="0.18" />
-        <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_my_wallet2.xml" value="0.1380778588807786" />
+        <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_my_wallet2.xml" value="0.16" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_on_boarding_one.xml" value="0.14" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_on_boarding_three.xml" value="0.161231884057971" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/activity_on_boarding_two.xml" value="0.161231884057971" />
@@ -36,6 +36,7 @@
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/row_item_coming_soon.xml" value="0.1314189189189189" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/row_item_now_playing.xml" value="0.75" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/row_item_ticket_detail_white.xml" value="0.2" />
+        <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/row_item_transaksi.xml" value="0.33" />
         <entry key="..\:/Coding/Android Programming/Project/NontonMovieKotlin/app/src/main/res/layout/row_item_who_plays.xml" value="0.1314189189189189" />
       </map>
     </option>

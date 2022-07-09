@@ -138,7 +138,7 @@ class CheckoutActivity : AppCompatActivity() {
 
         val builder = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
         builder.setContentIntent(pendingIntent)
-            .setSmallIcon(R.drawable.icon_small_notif)
+            .setSmallIcon(R.drawable.icon_small_notification)
             .setLargeIcon(
                 BitmapFactory.decodeResource(this.resources, R.drawable.icon_large_notif)
             )

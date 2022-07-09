@@ -5,7 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color_main"
-    tools:context=".profile.MyWalletActivity">
+    tools:context=".wallet.MyWalletActivity">
+
+
+    <Button
+        android:id="@+id/btn_top_up_saldo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/shape_btn_primary"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="TOP UP SALDO"
+        android:textColor="@color/background_color_main"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -26,9 +44,9 @@
 
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/btn_back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,14 +54,14 @@
         app:srcCompat="@drawable/ic_back" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/tv_balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="IDR 250.000"
+        tools:text="IDR 250.000"
         android:textColor="@color/balance"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +80,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_balance" />
 
     <TextView
         android:id="@+id/textView37"
@@ -80,6 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_transaction"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"

@@ -34,7 +34,7 @@
             android:name=".history.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".profile.MyWalletActivity"
+            android:name=".wallet.MyWalletActivity"
             android:exported="false" />
         <activity
             android:name=".profile.EditProfileActivity"
